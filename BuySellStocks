@@ -1,0 +1,11 @@
+n=int(input())
+stocks=list(map(int,input().split()))
+m=0
+l=len(stocks)
+for s in range(l):
+    for j in range(s+1,l):
+        v=stocks[j]-stocks[s]
+        if v>m:
+            m=v
+print(m)
+    
