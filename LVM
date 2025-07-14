@@ -1,0 +1,43 @@
+
+n=int(input())
+instructions=[input().split() for _ in range(n)]
+stack=[]
+register=0
+i=0
+
+while i<n:
+    command=instructions[i]
+    if len(command)>1:
+        s1,s2=command
+        if s1=='PUSH':
+            stack.insert(0,int(s2))
+            i+=1
+        elif s1=='IFZERO':
+            if stack and stack[0]==0:
+                i=int(s2)-1
+            else:
+                i+=1               
+    else:
+        op=command[0]
+        if op=='STORE':
+            if stack:
+                register=stack.pop(0)
+            
+        elif op=='LOAD':
+            stack.insert(0,register)
+        elif op=='PLUS':
+            l1=stack.pop(0)
+            l2=stack.pop(0)
+            r=l1+l2
+            stack.insert(0,r)
+            
+        elif op=='TIMES':
+            l1=stack.pop(0)
+            l2=stack.pop(0)
+            r=l1*l2
+            stack.insert(0,r)
+        elif op=='DONE':
+            print(stack[0])
+            break
+        i+=1
+            
