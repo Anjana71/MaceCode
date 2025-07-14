@@ -1,0 +1,16 @@
+d=int(input())
+day_shift=list(map(int,input().split( )))
+night_shift=list(map(int,input().split( )))
+limit=int(input())
+extra=0
+
+day_shift.sort()
+night_shift.sort()
+night_shift=night_shift[::-1]
+
+for i in range(d):
+    if day_shift[i]+night_shift[i]>limit:
+        difference=(day_shift[i]+night_shift[i])-limit
+        extra+=difference*100
+        
+print(extra)
