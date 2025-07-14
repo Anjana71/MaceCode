@@ -1,0 +1,8 @@
+n,d=list(map(int,input().split( )))
+weights=list(map(int,input().split( )))
+weights.sort()
+weights=weights[::-1]
+sum=0
+for i in range(d):
+    sum+=weights[i]
+print(sum)
