@@ -1,0 +1,9 @@
+r=int(input())
+c=int(input())
+count=0
+for i in range(r):
+    m=list(map(int,input().split()))
+    for v in m:
+        if v<0:
+            count+=1
+print(count)
