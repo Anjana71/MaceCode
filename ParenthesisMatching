@@ -1,0 +1,17 @@
+s=input()
+c1=0
+c2=0
+l=len(s)
+for c in range(l):
+    if s[c]=='{':
+        c1+=1
+    else:
+        c2+=1
+    
+if s[0]=='}':
+    print('Not Matching')
+elif c1==c2:
+    print('Matching')
+else:
+    print('Not Matching')
+
